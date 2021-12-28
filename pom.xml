@@ -37,6 +37,7 @@
         <configuration>
           <parallel>methods</parallel>
           <threadCount>${test.threads}</threadCount>
+          <dataProviderThreadCound>${test.threads}</dataProviderThreadCound>
           <includes>
             <include>**/saucetrain/${test.suite}/**/*Test.java</include>
           </includes>
