@@ -6,6 +6,8 @@
   <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <test.suite>*</test.suite>
+        <test.threads>1</test.threads>
   </properties>
   <dependencies>
     <dependency>
@@ -34,9 +36,9 @@
         <version>3.0.0-M5</version>
         <configuration>
           <parallel>methods</parallel>
-          <threadCount>2</threadCount>
+          <threadCount>${test.threads}</threadCount>
           <includes>
-            <include>**/*Test.java</include>
+            <include>**/saucetrain/${test.suite}/**/*Test.java</include>
           </includes>
         </configuration>
       </plugin>

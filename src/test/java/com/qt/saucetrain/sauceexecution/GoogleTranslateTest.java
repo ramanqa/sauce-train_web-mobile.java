@@ -1,5 +1,9 @@
+package com.qt.saucetrain.sauceexecution;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -8,6 +12,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.net.URL;
 
 import org.testng.annotations.*;
 import org.testng.Reporter;
@@ -19,9 +24,10 @@ public class GoogleTranslateTest {
     WebDriver browser;
 
     @BeforeMethod
-    public void setUp(){
-        browser = new ChromeDriver();
-        browser.get("https://translate.google.co.in/");
+    public void setUp() throws Exception{
+        ChromeOptions chromeOptions = new ChromeOptions();
+        browser = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
+        browser.get("https://translate.google.com/");
     }
 
     @AfterMethod
